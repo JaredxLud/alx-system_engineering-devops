@@ -1,2 +1,11 @@
 #!/bin/bash
-mv[[:upper]]*/tmp/u
+
+source_directory=$(pwd)
+destination_directory="/tmp/u"
+
+for file in *; do
+    if [[ $file =~ ^[[:upper:]] ]]; then
+        mv "$file" "$destination_directory"
+        echo "Moved $file to $destination_directory"
+    fi
+done
